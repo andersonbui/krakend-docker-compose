@@ -1,0 +1,13 @@
+name: krakend
+services:
+    krakend:
+      image: devopsfaith/krakend:watch
+      volumes:
+        - ".:/etc/krakend"
+      ports:
+        - "8000:8080"
+      command: [ "run", "-dc", "krakend.json" ]
+    designer:
+        ports:
+            - 8080:80
+        image: krakend/designer
